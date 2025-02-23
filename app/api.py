@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+import os
+
+# Load environment variables at the start
+load_dotenv()
+
 from fastapi import FastAPI, WebSocket
 from .scraper import NewsArticleScraper
 from .rag_pipeline import RAGPipeline
@@ -6,7 +12,6 @@ import json
 from typing import List, Dict
 import asyncio
 import uvicorn
-import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

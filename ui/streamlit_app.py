@@ -5,7 +5,8 @@ import json
 import re
 from datetime import datetime
 import time
-from config import WS_API_URL
+
+WS_API_URL = st.secrets["WS_API_URL"]
 
 async def get_bot_response(message):
     """Get response from WebSocket with proper connection handling"""
