@@ -5,6 +5,8 @@ import logging
 import json
 from typing import List, Dict
 import asyncio
+import uvicorn
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -79,3 +81,16 @@ async def websocket_endpoint(websocket: WebSocket):
 async def shutdown_event():
     """Cleanup on shutdown"""
     logger.info("Shutting down application")
+
+if __name__ == "__main__":
+    # Get port from environment variable or use default
+    port = int(os.getenv("PORT", 8000))
+    
+    # Run the FastAPI app with uvicorn
+    uvicorn.run(
+        "api:app",
+        host="0.0.0.0",  # Listen on all available interfaces
+        port=port,
+        reload=True,  # Enable auto-reload during development
+        log_level="info"
+    )

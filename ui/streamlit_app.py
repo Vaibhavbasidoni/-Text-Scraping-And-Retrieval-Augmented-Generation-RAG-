@@ -5,12 +5,12 @@ import json
 import re
 from datetime import datetime
 import time
+from config import WS_API_URL
 
 async def get_bot_response(message):
     """Get response from WebSocket with proper connection handling"""
-    uri = "ws://localhost:8000/ws/chat"
     try:
-        async with websockets.connect(uri) as websocket:
+        async with websockets.connect(WS_API_URL + "/ws/chat") as websocket:
             await websocket.send(message)
             full_response = ""
             try:
