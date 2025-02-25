@@ -121,8 +121,3 @@ streamlit run ui/streamlit_app.py
 - "What's happening in the business world?"
 - "Give me recent sports updates"
 
-## Streamlit Cloud Deployment
-Access the live application at: [Your Streamlit Cloud URL]
-
-## License
-[Your chosen license]
